@@ -96,6 +96,9 @@ export class MatCarouselComponent
   }
 
   @Output()
+  public animationStart: EventEmitter<number> = new EventEmitter<number>();
+
+  @Output()
   public change: EventEmitter<number> = new EventEmitter<number>();
 
   public get currentIndex(): number {
@@ -355,7 +358,10 @@ export class MatCarouselComponent
     );
     const animation = factory.create(this.carouselList.nativeElement);
 
-    animation.onStart(() => (this.playing = true));
+    animation.onStart(() => {
+      this.playing = true;
+      this.animationStart.emit(this.currentIndex);
+  });
     animation.onDone(() => {
       this.change.emit(this.currentIndex);
       this.playing = false;
