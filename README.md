@@ -70,6 +70,15 @@ import { MatCarousel, MatCarouselComponent } from '@ngbmodule/material-carousel'
 | `orientation`         | `Orientation`      | Orientation of the sliding panel.                                          | `'ltr'`           |
 | `svgIconOverrides`    | `SvgIconOverrides` | Override default carousel icons with registered SVG icons.                 |                   |
 
+
+| Output                |  Event Type        | Description                                                                |
+| --------------------- | ------------------ | -------------------------------------------------------------------------- |
+| `animationStart`      | `number`           | Emitted when slide animation starts, event send is the new slide index.    |
+| `change`              | `number`           | Emitted when slide animation is done, event send is the new slide index.   |
+
+
+
+
 #### Size Considerations and Recommendations
 By default, `maintainAspectRatio` is true, which means height is controlled through `proportion`.
 
